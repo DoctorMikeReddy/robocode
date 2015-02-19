@@ -255,6 +255,36 @@ public class FileUtil {
 	}
 
 	/**
+	 * Returns the directory containing maps.
+	 * If the directory does not exist, it will be created automatically.
+	 *
+	 * @return a File that is the directory containing maps.
+	 */
+	public static File getMapsDir() {
+		return createDir(new File(cwd, "/maps"));
+	}
+	
+	/**
+	 * Returns the directory containing images.
+	 * If the directory does not exist, it will be created automatically.
+	 *
+	 * @return a File that is the directory containing images.
+	 */
+	public static File getImagesDir() {
+		return createDir(new File(cwd, "/images"));
+	}
+	
+	/**
+	 * Returns the directory containing extension jars.
+	 * If the directory does not extist, it will be created automatically.
+	 * 
+	 * @return a File that is the directory containing extension jars
+	 */
+	public static File getExtensionsDir() {
+		return createDir(new File(cwd, "/extensions"));
+	}
+	
+	/**
 	 * Returns the directory containing the screen shot files.
 	 * If the directory does not exist, it will be created automatically.
 	 *
@@ -291,6 +321,15 @@ public class FileUtil {
 		return new File(getConfigDir(), "compiler.properties");
 	}
 
+	/**
+	 * Returns the Battle configuration file.
+	 *
+	 * @return a File that is the Battle configuration file.
+	 */
+	public static File getBattleConfigFile() {
+		return new File(getConfigDir(), "battle.properties");
+	}
+	
 	/**
 	 * Returns the source code editor configuration file.
 	 *

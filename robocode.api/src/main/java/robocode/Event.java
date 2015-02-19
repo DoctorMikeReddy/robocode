@@ -15,7 +15,7 @@ import robocode.robotinterfaces.IBasicRobot;
 
 import java.awt.*;
 import java.io.Serializable;
-
+import java.util.Hashtable; // Could be HashMap?
 
 // XXX Remember to update the .NET version whenever a change is made to this class!
 
@@ -224,6 +224,13 @@ public abstract class Event implements Comparable<Event>, Serializable {
 	}
 
 	/**
+	 * This method is replacing bullet on event with bullet instance which was passed to robot as result of fire command
+	 * @param bullets collection containing all moving bullets known to robot
+	 */
+	// this method is invisible on RobotAPI
+	void updateBullets(Hashtable<Integer, Bullet> bullets) {}
+
+	/**
 	 * Returns a hidden event helper for accessing hidden methods on this object.
 	 */
 	// This method must be invisible on Robot API
@@ -261,6 +268,10 @@ public abstract class Event implements Comparable<Event>, Serializable {
 
 		public byte getSerializationType(Event event) {
 			return event.getSerializationType();
+		}
+		
+		public void updateBullets(Event event, Hashtable<Integer, Bullet> bullets) { // ***
+			event.updateBullets(bullets);
 		}
 	}
 }

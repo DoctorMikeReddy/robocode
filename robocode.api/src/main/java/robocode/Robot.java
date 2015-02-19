@@ -12,7 +12,7 @@ import robocode.robotinterfaces.*;
 import robocode.robotinterfaces.peer.IStandardRobotPeer;
 
 import java.awt.*;
-
+import java.util.ArrayList; // Virtual Combat ***
 
 /**
  * The basic robot class that you will extend to create your own robots.
@@ -49,8 +49,8 @@ import java.awt.*;
 public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBasicEvents3, IInteractiveEvents, IPaintEvents {
 
 	private static final int
-			WIDTH = 36,
-			HEIGHT = 36;
+			WIDTH = 36, // VC 40 ***
+			HEIGHT = 36; // VC 40 ***
 
 	/**
 	 * Constructs a new robot.
@@ -386,6 +386,17 @@ public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBa
 		}
 	}
 
+	/**
+	 * Called by the system to 'clean up' after your robot.
+	 * You may not override this method.
+	 */
+	/* *** VC had this!
+	@Override
+	protected final void finalize() throws Throwable { // This method must be final!
+		super.finalize();
+	}
+	*/
+	
 	/**
 	 * Immediately fires a bullet. The bullet will travel in the direction the
 	 * gun is pointing.
@@ -734,6 +745,11 @@ public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBa
 	 */
 	public void onScannedRobot(ScannedRobotEvent event) {}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public void onScannedObject(ScannedObjectEvent event) {}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -1558,4 +1574,13 @@ public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBa
 	 * {@inheritDoc}
 	 */
 	public void onStatus(StatusEvent e) {}
+	
+	public ArrayList<String> getBattlefieldState() // ***
+	{
+		if (peer != null) {
+			return peer.getBattlefieldState();
+		}
+		uninitializedException();
+		return null;
+	}
 }

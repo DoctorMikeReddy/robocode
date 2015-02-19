@@ -31,6 +31,13 @@ public interface ITurnSnapshot {
 	 * @return a list of snapshots for the bullets that are currently on the battlefield.
 	 */
 	IBulletSnapshot[] getBullets();
+	
+	/**
+	 * Returns a list of snapshots for the objects that are currently on the battlefield
+	 * 
+	 * @return a list of snapshots for the objects that are currently on the battlefield
+	 */
+	IRobjectSnapshot[] getRobjects();
 
 	/**
 	 * Returns the current TPS (turns per second) rate.

@@ -16,7 +16,7 @@ import robocode.robotinterfaces.IBasicRobot;
 
 import java.awt.*;
 import java.nio.ByteBuffer;
-
+import java.util.Hashtable; // Can this be HashMap ***
 
 /**
  * This event is sent to {@link Robot#onBulletHitBullet(BulletHitBulletEvent)
@@ -86,6 +86,16 @@ public final class BulletHitBulletEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
+	final void updateBullets(Hashtable<Integer, Bullet> bullets) { // Needs a super ***
+		// we need to pass same instance
+		bullet = bullets.get(bullet.getBulletId());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+
 	byte getSerializationType() {
 		return RbSerializer.BulletHitBulletEvent_TYPE;
 	}

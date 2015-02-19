@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.robotinterfaces.IBasicEvents;
 
 import java.awt.*;
-
+import java.util.ArrayList; // Virtual Combat ***
 
 /**
  * The basic robot peer for all robot types.<p>
@@ -735,4 +735,6 @@ public interface IBasicRobotPeer {
 	 * @since 1.7.2
 	 */
 	void rescan();
+	
+	ArrayList<String> getBattlefieldState();
 }

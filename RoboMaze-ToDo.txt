@@ -1,0 +1,41 @@
+To Do
+Check Logger.java
+
+In RbSerializer.java:
+Check Hashtable->HashMap
+Check Dictionary->Map
+Check TERMINATOR_TYPE -128->-1
+
+In IScoreSnapshot.java
+Check Comparable<IScoreSnapshot>->Comparable<Object>
+Check getCombinedScore()->getTotalScore()
+Check getTotalScores()->???getTotalSurvivalScore() //List???
+Check getCurrentCombinedScore()->getCurrentScore()
+
+In BattleSpecification.java
+Check removal of saveURL
+
+In RandomFactory.java
+Check logMessage->logWarning
+
+In RobotSpecification.java
+Check teamName->teamID
+
+In iBasicRobotPeer.java
+ArrayList<String> getBattlefieldState()
+
+In BattleResults.java
+Check combinedScore, scores, scoreNames
+Check compareTo(IBattleResults o)
+Check getTeamNamre()->getTeamLeaderName
+Check combinedScore->score
+
+In Events.java
+Check setPriority()->setPriorityHidden()
+
+In RoboCodeFileOutputStream.java
+80 this.fileName = fileName;
+
+In Robot.java
+390 finalize()
+740 onScannedObject()

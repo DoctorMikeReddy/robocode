@@ -30,6 +30,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 
 /**
@@ -168,6 +169,15 @@ public class HiddenAccess {
 				if (name.contains("codesize")) {
 					urls.add(file.toURI().toURL());
 				}
+				if (name.contains("robocodeextensions")) {
+					urls.add(file.toURI().toURL());
+				}
+				if (name.contains("xpp3_min")) {
+					urls.add(file.toURI().toURL());
+				}
+				if (name.contains("xstream")) {
+					urls.add(file.toURI().toURL());
+				}
 				classPath.append(File.pathSeparator);
 				classPath.append(file.toString());
 			}
@@ -199,6 +209,10 @@ public class HiddenAccess {
 		return eventHelper.getSerializationType(e);
 	}
 
+	public static void updateBullets(Event e, Hashtable<Integer, Bullet> bullets) {
+		eventHelper.updateBullets(e, bullets);
+	}
+	
 	public static void update(Bullet bullet, double x, double y, String victimName, boolean isActive) {
 		bulletHelper.update(bullet, x, y, victimName, isActive);
 	}
